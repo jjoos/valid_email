@@ -1,9 +1,10 @@
 require 'active_model'
 require 'active_model/validations'
-require 'mail'
-require 'resolv'
+
 class MxValidator < ActiveModel::EachValidator
   def validate_each(record,attribute,value)
+    require 'mail'
+    require 'resolv'
     begin
       m = Mail::Address.new(value)
       if m.domain

@@ -1,2 +1,3 @@
-ValidEmailVersion = "0.0.4"
-
+module ValidEmail
+  VERSION = "0.0.4"
+end

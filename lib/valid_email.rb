@@ -1,2 +1,2 @@
-require 'valid_email/all'
-I18n.load_path += Dir.glob(File.expand_path('../../config/locales/**/*',__FILE__))
+require 'valid_email/email_validator'
+require 'valid_email/mx_validator'

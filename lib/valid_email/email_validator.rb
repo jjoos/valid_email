@@ -29,7 +29,10 @@ module ValidEmail
     # treetop must respond to domain
     # We exclude valid email values like <user@localhost.com>
     # Hence we use m.__send__(tree).domain
-    return t.domain.dot_atom_text.elements.size > 1
+    return false unless t.domain.dot_atom_text.elements.size > 1
+
+    # check if the domain contains only word chars and dots
+    return m.domain =~ /\A(\w|\.)*\Z/i
   rescue
     false
   end

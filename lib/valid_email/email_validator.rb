@@ -33,8 +33,8 @@ module ValidEmail
     # Hence we use m.__send__(tree).domain
     return false unless t.domain.dot_atom_text.elements.size > 1
 
-    # check if the domain contains only word chars and dots
-    return m.domain =~ /\A(\w|\.)*\Z/i
+    # check if the domain contains only word chars and dots and dashes in between word chars
+    return m.domain =~ /\A(?:\w+(?:\-+\w+)*\.)*(?:[a-z0-9][a-z0-9-]*[a-z0-9])\Z/i
   rescue
     false
   end
